@@ -25,3 +25,10 @@ error while loading shared libraries: libopenblas.so.0: cannot open shared objec
 
 ## opencv 安装脚本
 在文件中更改版本号即可。
+
+## c++/g++问题
+修改这一步是为了避免出现string.h ‘memcy’ was not declared in this scope这样的错误，这种错误通常是由于gcc版本太新而导致的
+修改 Makefile 文件
+NVCCFLAGS += -ccbin=$(CXX) -Xcompiler -fPIC $(COMMON_FLAGS)  #这行去掉
+#改为：
+NVCCFLAGS += -D_FORCE_INLINES -ccbin=$(CXX) -Xcompiler -fPIC $(COMMON_FLAGS)
