@@ -8,13 +8,15 @@ caffe cuda8.0, cudnn7, openBLAS, opencv 2.4.13
 1 下载之后，make编译，还需要执行 sudo make install, 以确保安装到系统环境。默认位置为/opt/OpenBLAS。
 
 ### 修改caffe Makefile.conf 文件如下
-
+‵‵‵
 BLAS := open
  Custom (MKL/ATLAS/OpenBLAS) include and lib directories.
  Leave commented to accept the defaults for your choice of BLAS
  (which should work)!
 BLAS_INCLUDE :=  /opt/OpenBLAS/include
 BLAS_LIB := /opt/OpenBLAS/lib
+```
+
 参考：http://blog.csdn.net/sinat_17196995/article/details/53466524
 
 ### 如果编译时openblas报错：
@@ -29,6 +31,8 @@ error while loading shared libraries: libopenblas.so.0: cannot open shared objec
 ## c++/g++问题
 修改这一步是为了避免出现string.h ‘memcy’ was not declared in this scope这样的错误，这种错误通常是由于gcc版本太新而导致的
 修改 Makefile 文件
+```
 NVCCFLAGS += -ccbin=$(CXX) -Xcompiler -fPIC $(COMMON_FLAGS)  #这行去掉
 #改为：
 NVCCFLAGS += -D_FORCE_INLINES -ccbin=$(CXX) -Xcompiler -fPIC $(COMMON_FLAGS)
+```
