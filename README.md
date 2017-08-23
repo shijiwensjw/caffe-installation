@@ -1,9 +1,9 @@
 # caffe-installation
-- 搭建环境：
-   * cuda8.0.61
-   * cudnn7
-   * OpenBLAS
-   * opencv 2.4.13
+- 搭建环境
+   - cuda8.0.61
+   - cudnn7
+   - OpenBLAS
+   - opencv 2.4.13
 
 1、Ubuntu14.04 参考教程 http://coldmooon.github.io/2015/08/03/caffe_install/
 
